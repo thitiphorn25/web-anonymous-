@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonymous Feedback System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Feedback<span>Map</span></div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showPage('user')">ส่งคำปรึกษา</a></li>
+            <li><a href="#" onclick="showPage('admin')">Admin Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="user-page" class="page active">
+            <div class="form-card">
+                <h2>ส่งข้อความแบบไม่ระบุตัวตน</h2>
+                <p>กังวล? ไม่รู้จะปรึกษาใคร? พื้นที่นี้ปลอดภัยสำหรับคุณ</p>
+                <form>
+                    <div class="input-group">
+                        <label>ประเด็นปัญหา</label>
+                        <select>
+                            <option>เลือกหัวข้อความไม่สบายใจ</option>
+                            <option>เรื่องการเรียน</option>
+                            <option>ความสัมพันธ์</option>
+                            <option>ปัญหาส่วนตัว</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>รายละเอียด</label>
+                        <textarea placeholder="ระบายความรู้สึกหรือแจ้งปัญหาได้ที่นี่..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">ส่งข้อมูล (Anonymous)</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="admin-page" class="page">
+            <div class="form-card">
+                <h2>Admin Backend</h2>
+                <p>กรุณาเข้าสู่ระบบเพื่อจัดการข้อมูล</p>
+                <form>
+                    <div class="input-group">
+                        <label>Username</label>
+                        <input type="text" placeholder="Admin ID">
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="btn-admin">เข้าสู่ระบบหลังบ้าน</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function showPage(page) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(page + '-page').classList.add('active');
+        }
+    </script>
+</body>
+</html>

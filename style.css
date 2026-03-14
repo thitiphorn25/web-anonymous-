@@ -1,0 +1,161 @@
+:root {
+    --primary-blue: #ff96fa;
+    --soft-blue: #e3f2fd;
+    --dark-blue: #e98fff;
+    --bg-white: #ffffff;
+    --text-gray: #4a4a4a;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Sarabun', sans-serif;
+}
+
+body {
+    background-color: #f8fbff;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    background: var(--bg-white);
+    padding: 1rem 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+}
+
+.logo span { color: #ccc; }
+
+.nav-links { list-style: none; display: flex; }
+.nav-links li { margin-left: 20px; }
+.nav-links a { 
+    text-decoration: none; 
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+.nav-links a:hover { color: var(--primary-blue); }
+
+/* Layout Control */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.page { display: none; }
+.page.active { display: block; animation: fadeIn 0.5s ease; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Card Style */
+.form-card {
+    background: var(--bg-white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+h2 { margin-bottom: 10px; color: var(--dark-blue); }
+p { font-size: 0.9rem; color: #888; margin-bottom: 30px; }
+
+/* Input Styles */
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; }
+
+select, input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    background: #f9f9f9;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+select:focus, input:focus, textarea:focus {
+    border-color: var(--primary-blue);
+    background: #fff;
+    box-shadow: 0 0 8px rgba(0, 168, 255, 0.1);
+}
+
+textarea { height: 120px; resize: none; }
+
+/* Buttons */
+.btn-primary, .btn-admin {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+.btn-primary:hover { background-color: var(--dark-blue); }
+
+.btn-admin {
+    background-color: #f1f1f1;
+    color: #444;
+}
+
+.btn-admin:hover { background-color: #e1e1e1; }
+
+/* Animation สำหรับหน้าเปลี่ยน */
+.page {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Shake Effect ตอนรหัสผิด */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.shake {
+    animation: shake 0.2s ease-in-out 0s 2;
+    border: 1px solid #ff4d4d !important;
+}
+
+/* ปุ่มกดแล้วบุ๋ม (Active state) */
+button:active {
+    transform: scale(0.98);
+}
+
+/* ตกแต่ง Dropdown ให้ดู Minimal */
+select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+}
